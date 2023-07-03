@@ -9,7 +9,7 @@ class WeatherApiClient {
 
   Future<Weather> getCurrentWeather(String location) async {
     var endpoint = Uri.parse(
-        "https://api.openweathermap.org/data/2.5/weather?q=$location&appid=$apiKey&units=metrics");
+        "https://api.openweathermap.org/data/2.5/weather?q=$location&appid=$apiKey&units=imperial");
 
     var response = await http.get(endpoint);
     var body = jsonDecode(response.body);
@@ -23,7 +23,7 @@ class WeatherApiClient {
 
   Future<List<WeatherForecast>> getWeatherForecast(String cityname) async {
     var endpoint = Uri.parse(
-      "https://api.openweathermap.org/data/2.5/forecast?q=$cityname&appid=$apiKey&units=metrics",
+      "https://api.openweathermap.org/data/2.5/forecast?q=$cityname&appid=$apiKey&units=imperial",
     );
 
     var response = await http.get(endpoint);
